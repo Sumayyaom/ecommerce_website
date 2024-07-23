@@ -1,6 +1,7 @@
 import React, { useEffect,useState } from 'react'
 import { Container, Row, Col, ListGroup } from 'react-bootstrap'
-import { useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 const ProductDetails = () => {
 
@@ -10,7 +11,7 @@ const ProductDetails = () => {
     const [productFetched,setProductFetched] = useState(false);
 
     const getproducts=()=>{
-        fetch('./products.json')
+        axios.get('./products.json')
         .then((data)=> data.json())
         .then((res)=> setproducts((res.products)));
         setProductFetched(true);
